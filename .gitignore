@@ -53,6 +53,16 @@ create_ppt2.py
 diag.py
 
 # ===========================
+# Large Dataset CSV files (too large for GitHub)
+# ===========================
+prices_3year_dataset.csv
+districts_dataset.csv
+farmers.csv
+soil_dataset.csv
+veg_production_dataset.csv
+weather_dataset.csv
+
+# ===========================
 # IDE / OS
 # ===========================
 .vscode/

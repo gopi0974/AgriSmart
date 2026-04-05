@@ -97,6 +97,23 @@ Double-click `Run_App.bat` — launches both backend and frontend automatically.
 
 ---
 
+## 🌐 Deployment Guide (Live)
+
+### 1. Frontend (Vercel)
+The UI is optimized for [Vercel](https://vercel.com).
+- **Framework Preset**: Vite
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Environment Variable**: `VITE_API_BASE_URL` (Set this to your live Backend URL, e.g., `https://your-api.onrender.com/api`)
+
+### 2. Backend (Render / Railway)
+The API runs anywhere with Python 3.10+.
+- **Build Command**: `pip install -r requirements.txt`
+- **Start Command**: `uvicorn app:app --host 0.0.0.0 --port $PORT`
+- **Root Directory**: `backend` (if deploying from a monorepo)
+
+---
+
 ## 🌐 API Endpoints
 
 | Method | Endpoint | Description |

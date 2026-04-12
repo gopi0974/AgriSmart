@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+    volumes:
+      - ./backend/users.json:/app/backend/users.json
+      - ./backend/crops.json:/app/backend/crops.json
+    restart: always

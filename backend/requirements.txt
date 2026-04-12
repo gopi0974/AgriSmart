@@ -8,3 +8,5 @@ passlib[bcrypt]==1.7.4
 python-multipart==0.0.9
 pydantic==2.6.3
 numpy==1.26.4
+gunicorn==21.2.0
+

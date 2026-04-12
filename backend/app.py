@@ -71,15 +71,23 @@ app.include_router(auth_router)
 app.include_router(farmer_router)
 app.include_router(data_router)
 app.include_router(ai_router)
+ 
+# Serving Frontend Static Files (for production)
+from fastapi.staticfiles import StaticFiles  # pyre-ignore[21]
+frontend_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend", "dist")
 
+if os.path.exists(frontend_path):
+    app.mount("/", StaticFiles(directory=frontend_path, html=True), name="frontend")
+else:
+    @app.get("/")
+    def root():
+        return {
+            "message": "Smart Vegetable Availability & Price Transparency API",
+            "docs": "/docs",
+            "status": "running",
+            "frontend": "not found (run 'npm run build' in /frontend)"
+        }
 
-@app.get("/")
-def root():
-    return {
-        "message": "Smart Vegetable Availability & Price Transparency API",
-        "docs": "/docs",
-        "status": "running",
-    }
 
 
 @app.get("/health")

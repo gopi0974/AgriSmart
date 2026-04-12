@@ -1,9 +1,11 @@
 import axios from 'axios';
 
 // Create an Axios instance pointing to the FastAPI backend
+// Dynamic Base URL for production vs development
 const api = axios.create({
-  baseURL: 'http://127.0.0.1:8000/api',
+  baseURL: import.meta.env.DEV ? 'http://127.0.0.1:8000/api' : '/api',
 });
+
 
 // Add a request interceptor to inject the JWT token if available
 api.interceptors.request.use(

@@ -1,0 +1,26 @@
+# Node
+node_modules
+frontend/node_modules
+frontend/dist
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.venv
+venv
+ENV
+backend/users.json
+backend/crops.json
+
+# IDE
+.vscode
+.idea
+.git
+.agents
+.gemini
+
+# OS
+.DS_Store
+Thumbs.db

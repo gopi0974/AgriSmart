@@ -2,7 +2,11 @@
 diag.py - Diagnostic script to find the exact startup error
 """
 import sys
+import os
 import traceback
+
+# Ensure the backend directory is on the path when run as a standalone script
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 print("=== DIAGNOSTIC: Importing data_loader ===")
 try:

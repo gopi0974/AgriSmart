@@ -3,7 +3,7 @@ routes/auth_routes.py — Farmer and Consumer authentication endpoints.
 """
 from fastapi import APIRouter  # pyre-ignore[21]
 from pydantic import BaseModel  # pyre-ignore[21]
-from auth import farmer_signup, farmer_login, consumer_signup, consumer_login  # pyre-ignore[21]
+from ..auth import farmer_signup, farmer_login, consumer_signup, consumer_login  # pyre-ignore[21]
 
 router = APIRouter(prefix="/api")
 

@@ -41,7 +41,7 @@ def search_vegetables(
         
     # Live Farmer Data from crops.json strictly validated
     try:
-        from routes.farmer_routes import CROPS_FILE  # pyre-ignore[21]
+        from .farmer_routes import CROPS_FILE  # pyre-ignore[21]
         if os.path.exists(CROPS_FILE):
             with open(CROPS_FILE, "r") as f:
                 all_crops = json.load(f)
@@ -112,7 +112,7 @@ class VoiceRequest(BaseModel):
     context_district: str = "Guntur"
 
 def parse_voice_command(text: str, context_district: str):
-    from routes.ai_routes import translate_to_english, translate_from_english
+    from .ai_routes import translate_to_english, translate_from_english
     english_text, detected_lang = translate_to_english(text)
     text = english_text.lower().strip()
     
@@ -228,7 +228,7 @@ def api_voice_command(req: VoiceRequest):
 
 @router.get("/model-info")
 def get_model_info():
-    from ml_model.train import INFO_PATH  # pyre-ignore[21]
+    from ..ml_model.train import INFO_PATH  # pyre-ignore[21]
     if os.path.exists(INFO_PATH):
         with open(INFO_PATH, "r") as f:
             return {"success": True, "info": json.load(f)}
@@ -317,7 +317,7 @@ def list_vegetables():
 
 @router.post("/train-model")
 def trigger_training():
-    from ml_model.train import train_model  # pyre-ignore[21]
+    from ..ml_model.train import train_model  # pyre-ignore[21]
     prices_df = _state["prices_df"]
     production_df = _state["production_df"]
     model, encoders, mae = train_model(prices_df, production_df)

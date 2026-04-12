@@ -7,17 +7,17 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI  # pyre-ignore[21]
 from fastapi.middleware.cors import CORSMiddleware  # pyre-ignore[21]
 
-from data_loader import (  # pyre-ignore[21]
+from .data_loader import (  # pyre-ignore[21]
     prices_df, production_df, vegs_df, districts_df,
     get_vegetable_locations, get_recommendations, get_all_veg_locations,
     get_farmers_by_vegetable,
     DISTRICTS, VEGETABLES,
 )
-from ml_model.train import load_model, train_model, predict_price  # pyre-ignore[21]
-from routes.auth_routes import router as auth_router  # pyre-ignore[21]
-from routes.farmer_routes import router as farmer_router  # pyre-ignore[21]
-from routes.data_routes import router as data_router, set_state  # pyre-ignore[21]
-from routes.ai_routes import router as ai_router # pyre-ignore[21]
+from .ml_model.train import load_model, train_model, predict_price  # pyre-ignore[21]
+from .routes.auth_routes import router as auth_router  # pyre-ignore[21]
+from .routes.farmer_routes import router as farmer_router  # pyre-ignore[21]
+from .routes.data_routes import router as data_router, set_state  # pyre-ignore[21]
+from .routes.ai_routes import router as ai_router # pyre-ignore[21]
 
 
 @asynccontextmanager

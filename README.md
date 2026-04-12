@@ -1,138 +1,87 @@
-# 🌾 AgriSmart — AI-Powered Vegetable Marketplace
+# 🌿 AgriSmart: AI-Powered Vegetable Marketplace
 
-> Connecting farmers directly with consumers using AI-driven price intelligence for Andhra Pradesh's Digital Transparency Initiative.
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=flat-square&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/Frontend-React-61DAFB?style=flat-square&logo=react)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Tooling-Vite-646CFF?style=flat-square&logo=vite)](https://vitejs.dev/)
+[![ML](https://img.shields.io/badge/ML-Scikit--Learn-F7931E?style=flat-square&logo=scikit-learn)](https://scikit-learn.org/)
 
-![License](https://img.shields.io/badge/license-MIT-green)
-![Python](https://img.shields.io/badge/python-3.10+-blue)
-![React](https://img.shields.io/badge/react-18-61DAFB?logo=react)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.110-009688?logo=fastapi)
-
----
-
-## ✨ Features
-
-| Feature | Description |
-|---|---|
-| 🤖 **AI Price Prediction** | Random Forest ML model trained on 3-year historical data + seasonal yields |
-| 🧑‍🌾 **Farmer Portal** | List crops with quantity, district, pricing, and contact info |
-| 🛒 **Consumer Marketplace** | Browse, search, and order vegetables from local farmers |
-| 🗺️ **Map Search** | Integrated Leaflet map with live lat/lon coordinates |
-| ☁️ **Weather-Aware Scoring** | Intelligent recommendations based on seasonal peak yields |
-| 📊 **Analytics Dashboard** | Real-time system monitoring, MAE accuracy, and training metrics |
-| 🔐 **JWT Auth** | Secure farmer & consumer authentication with bcrypt password hashing |
-| 🧾 **PDF Receipts** | Auto-generated order receipts with delivery/pickup details |
+**AgriSmart** is a cutting-edge agricultural platform designed for Andhra Pradesh. It bridges the gap between farmers and consumers by providing real-time price transparency, AI-driven market predictions, and location-aware vegetable sourcing.
 
 ---
 
-## 🛠️ Tech Stack
+## ✨ Key Features
 
-**Frontend**
-- React 18 + TypeScript + Vite
-- Tailwind CSS + Framer Motion
-- Leaflet (Maps) + Zustand (State) + React Router DOM
-
-**Backend**
-- Python 3.10+ + FastAPI + Uvicorn
-- Pandas + Scikit-learn (Random Forest) + Joblib
-- JWT (`python-jose`) + bcrypt (`passlib`)
+-   🧠 **AI Price Prediction**: Utilizes a Random Forest regression model trained on 3 years of historical data to predict vegetable prices with high accuracy (tracked via MAE).
+-   🚜 **Farmer Empowerment**: Dedicated portal for farmers to list crops, manage inventory, and connect directly with local buyers without middle-men.
+-   📍 **Smart Geolocation**: Interactive map (Leaflet) allowing consumers to find vegetables based on proximity (lat/lon) and district.
+-   ⛅ **Seasonal Recommendations**: Intelligent crop scoring based on weather patterns, seasonal peak yields, and regional suitability.
+-   🛍️ **Digital Checkout**: Seamless "checkout" process that generates professional PDF receipts for transactions.
+-   📊 **Transparency Dashboard**: Real-time metrics on model performance and data distribution.
 
 ---
 
-## 📁 Project Structure
+## 🛠️ Technology Stack
 
-```
-hackthon/
-├── backend/
-│   ├── app.py              # FastAPI entrypoint
-│   ├── auth.py             # JWT & bcrypt authentication
-│   ├── data_loader.py      # ML data pipeline
-│   ├── routes/             # API route modules
-│   ├── ml_model/           # Trained model artifacts (git-ignored)
-│   ├── requirements.txt    # Python dependencies
-│   └── data/               # Runtime data (git-ignored)
-├── frontend/
-│   ├── src/                # React source code
-│   ├── public/             # Static assets
-│   ├── package.json        # Node dependencies
-│   └── vite.config.ts      # Vite configuration
-├── *.csv                   # Dataset files
-├── start_backend.bat       # Launch backend (Windows)
-├── start_frontend.bat      # Launch frontend (Windows)
-└── Run_App.bat             # Launch both simultaneously
-```
+### Backend
+- **Framework**: FastAPI (Asynchronous Python)
+- **Data Science**: Pandas, NumPy, Scikit-learn
+- **Security**: JWT Authentication, Bcrypt password hashing
+- **Storage**: JSON-based persistent storage for users and crops
+
+### Frontend
+- **Framework**: React 18 with TypeScript
+- **Styling**: Tailwind CSS & Framer Motion (Animations)
+- **Maps**: React-Leaflet
+- **State Management**: Zustand
+- **Icons**: Lucide React
 
 ---
 
 ## 🚀 Getting Started
 
-### Prerequisites
+### 1. Prerequisites
 - Python 3.10+
 - Node.js 18+
-- pip
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/YOUR_USERNAME/agrismart.git
-cd agrismart
-```
+### 2. Installation
 
-### 2. Backend Setup
+#### Backend Setup
 ```bash
 cd backend
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
-python app.py
 ```
-Backend runs at: `http://localhost:8000`
 
-### 3. Frontend Setup
+#### Frontend Setup
 ```bash
 cd frontend
 npm install
-npm run dev
 ```
-Frontend runs at: `http://localhost:5173`
 
-### 4. Quick Start (Windows)
-Double-click `Run_App.bat` — launches both backend and frontend automatically.
+### 3. Running the Application
 
----
-
-## 🌐 Deployment Guide (Live)
-
-### 1. Frontend (Vercel)
-The UI is optimized for [Vercel](https://vercel.com).
-- **Framework Preset**: Vite
-- **Build Command**: `npm run build`
-- **Output Directory**: `dist`
-- **Environment Variable**: `VITE_API_BASE_URL` (Set this to your live Backend URL, e.g., `https://your-api.onrender.com/api`)
-
-### 2. Backend (Render / Railway)
-The API runs anywhere with Python 3.10+.
-- **Build Command**: `pip install -r requirements.txt`
-- **Start Command**: `uvicorn app:app --host 0.0.0.0 --port $PORT`
-- **Root Directory**: `backend` (if deploying from a monorepo)
+For convenience, you can use the provided batch files:
+-   **Run All**: Execute `Run_Project.bat` to start both servers simultaneously.
+-   **Manual Start**:
+    -   Backend: `cd backend && uvicorn app:app --reload`
+    -   Frontend: `cd frontend && npm run dev`
 
 ---
 
-## 🌐 API Endpoints
+## 📂 Project Structure
 
-| Method | Endpoint | Description |
-|---|---|---|
-| `POST` | `/auth/signup` | Register farmer or consumer |
-| `POST` | `/auth/login` | Login and receive JWT |
-| `GET` | `/api/crops` | Get all available crops |
-| `POST` | `/api/crops` | Farmer: add crop listing |
-| `PUT` | `/api/crops/{id}` | Farmer: update crop |
-| `DELETE` | `/api/crops/{id}` | Farmer: remove crop |
-| `POST` | `/api/order` | Consumer: place order |
-| `GET` | `/api/predict` | Get AI price prediction |
+```text
+├── backend/            # FastAPI Application & ML Models
+│   ├── data/           # CSV Datasets (Prices, Yields, Weather)
+│   ├── routes/         # API Endpoints (Auth, Farmer, Data)
+│   ├── ml_model/       # Training Logic & Saved Models
+│   └── app.py          # Main Entry Point
+├── frontend/           # Vite + React TypeScript Application
+│   ├── src/            # Components, Hooks, and State
+│   └── public/         # Static Assets
+└── README.md
+```
 
----
+Created for the **Digital Transparency Initiative (DTI)** to foster a fairer agricultural economy.
 
-## 📜 License
-
-MIT License — free for academic and commercial use.
-
----
-
-*Built for the **Digital Transparency Initiative (DTI)** — Andhra Pradesh, India.*

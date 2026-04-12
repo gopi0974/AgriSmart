@@ -1,73 +1,30 @@
-# ===========================
 # Python
-# ===========================
 __pycache__/
 *.py[cod]
 *$py.class
-*.pyc
 .venv/
 env/
 venv/
 ENV/
-
-# Backend sensitive / generated files
 backend/ml_model/*.pkl
 backend/ml_model/model_info.json
 backend/data/*.csv
 backend/users.json
 backend/crops.json
-backend/*.log
-backend/err.txt
-backend/out.txt
-backend/diag_out.txt
-backend/error_log.txt
-backend/startup.log
-backend/res.txt
-backend/__pycache__/
 
-# ===========================
-# Node / Frontend
-# ===========================
+# Node
 node_modules/
 frontend/node_modules/
 dist/
 frontend/dist/
-frontend/build-log.txt
-frontend/dev.log
-frontend/frontend.log
-frontend/out.txt
-
-# ===========================
-# Logs
-# ===========================
 *.log
 
-# ===========================
-# Root-level test / temp files
-# ===========================
-response.txt
-test_login.py
-test_login_file.py
-create_ppt.py
-create_ppt2.py
-diag.py
-
-# ===========================
-# Large Dataset CSV files (too large for GitHub)
-# ===========================
-prices_3year_dataset.csv
-districts_dataset.csv
-farmers.csv
-soil_dataset.csv
-veg_production_dataset.csv
-weather_dataset.csv
-
-# ===========================
-# IDE / OS
-# ===========================
+# IDE
 .vscode/
 .idea/
 .gemini/
 .agents/
+
+# OS
 .DS_Store
 Thumbs.db

@@ -10,14 +10,17 @@ RUN npm run build
 FROM python:3.11-slim
 WORKDIR /app
 
-# Install system dependencies
+# Install system dependencies for packages like bcrypt and pandas
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
+    libffi-dev \
+    gcc \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python requirements
 COPY backend/requirements.txt ./backend/
-RUN pip install --no-cache-dir -r backend/requirements.txt
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r backend/requirements.txt
 
 # Copy backend code
 COPY backend ./backend
@@ -25,13 +28,13 @@ COPY backend ./backend
 # Copy the frontend build from Stage 1
 COPY --from=frontend-builder /app/frontend/dist ./frontend/dist
 
-# Expose the API port
+# Use the PORT environment variable (required by Railway/Render)
+ENV PORT=8000
 EXPOSE 8000
 
 # Set environment variables
-ENV HOST=0.0.0.0
-ENV PORT=8000
 ENV PYTHONUNBUFFERED=1
 
-# Run the application
-CMD ["gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "backend.app:app", "--bind", "0.0.0.0:8000"]
+# Run the application with dynamic port binding
+CMD gunicorn -w 4 -k uvicorn.workers.UvicornWorker backend.app:app --bind 0.0.0.0:$PORT
+

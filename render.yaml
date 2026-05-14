@@ -21,7 +21,7 @@ services:
   - type: web
     name: agrismart-frontend
     env: static
-    baseDir: frontend
+    rootDir: frontend
     buildCommand: npm install && npm run build
     publishPath: dist
     envVars:

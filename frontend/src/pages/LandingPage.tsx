@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Sprout, Store, Leaf, Star, Zap, TrendingUp, ArrowRight, Sparkles, Globe } from 'lucide-react';
 

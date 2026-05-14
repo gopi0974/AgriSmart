@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+backend/ml_model/*.pkl
+backend/ml_model/model_info.json
+backend/data/*.csv
+backend/users.json
+backend/crops.json
+
+# Node
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+*.log
+
+# IDE
+.vscode/
+.idea/
+.gemini/
+.agents/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Sprout, Store, Leaf, Star, Zap, TrendingUp, ArrowRight, Sparkles, Globe } from 'lucide-react';
 
@@ -23,13 +23,6 @@ const STATS = [
 ];
 
 export default function LandingPage() {
-  // const [tick, setTick] = useState(0);
-
-  useEffect(() => {
-    const id = setInterval(() => setTick(t => t + 1), 80);
-    return () => clearInterval(id);
-  }, []);
-
   return (
     <div className="relative min-h-[92vh] flex flex-col items-center justify-center overflow-hidden px-4 py-8">
 

@@ -3,6 +3,7 @@ services:
   - type: web
     name: agrismart-backend
     env: python
+    plan: free # Explicitly set to free tier
     buildCommand: pip install -r backend/requirements.txt
     startCommand: cd backend && gunicorn -w 4 -k uvicorn.workers.UvicornWorker app:app --bind 0.0.0.0:$PORT
     envVars:
@@ -15,6 +16,7 @@ services:
   - type: web
     name: agrismart-frontend
     runtime: static
+    plan: free # Static sites are free by default but let's be explicit
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist

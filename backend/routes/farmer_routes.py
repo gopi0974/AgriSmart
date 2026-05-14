@@ -10,8 +10,7 @@ from typing import Optional
 
 router = APIRouter(prefix="/api/farmer")
 
-USERS_FILE = os.path.join(os.path.dirname(__file__), "..", "users.json")
-CROPS_FILE = os.path.join(os.path.dirname(__file__), "..", "crops.json")
+from data_config import USERS_FILE, CROPS_FILE
 
 
 def _load_crops():

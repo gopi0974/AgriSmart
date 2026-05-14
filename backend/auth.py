@@ -17,7 +17,7 @@ ACCESS_TOKEN_EXPIRE_HOURS = 24
 
 
 
-USERS_FILE = os.path.join(os.path.dirname(__file__), "users.json")
+from data_config import USERS_FILE
 
 
 def _load_users() -> Dict[str, Dict[str, Dict[str, Any]]]:

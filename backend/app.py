@@ -3,7 +3,13 @@ app.py — FastAPI main application entry point.
 Run with: uvicorn app:app --reload --port 8000
 """
 import os
+import sys
 from contextlib import asynccontextmanager
+
+# Ensure the backend directory is in the path for Vercel/Serverless environments
+backend_dir = os.path.dirname(os.path.abspath(__file__))
+if backend_dir not in sys.path:
+    sys.path.append(backend_dir)
 from fastapi import FastAPI  # pyre-ignore[21]
 from fastapi.middleware.cors import CORSMiddleware  # pyre-ignore[21]
 

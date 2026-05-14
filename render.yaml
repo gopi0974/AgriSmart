@@ -18,8 +18,9 @@ services:
         value: /data
 
   # Frontend Service (Static Site)
-  - type: static
+  - type: web
     name: agrismart-frontend
+    runtime: static
     rootDir: frontend
     buildCommand: npm install && npm run build
     publishPath: dist

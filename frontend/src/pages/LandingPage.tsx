@@ -23,7 +23,7 @@ const STATS = [
 ];
 
 export default function LandingPage() {
-  const [tick, setTick] = useState(0);
+  // const [tick, setTick] = useState(0);
 
   useEffect(() => {
     const id = setInterval(() => setTick(t => t + 1), 80);

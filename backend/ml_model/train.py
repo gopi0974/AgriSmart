@@ -10,7 +10,15 @@ from sklearn.preprocessing import LabelEncoder  # pyre-ignore[21]
 from sklearn.model_selection import train_test_split  # pyre-ignore[21]
 from sklearn.metrics import mean_absolute_error  # pyre-ignore[21]
 
-MODEL_DIR = os.path.dirname(__file__)
+try:
+    from data_config import DATA_DIR
+    MODEL_DIR = os.path.join(DATA_DIR, "ml_model")
+except ImportError:
+    MODEL_DIR = os.path.dirname(__file__)
+
+if not os.path.exists(MODEL_DIR):
+    os.makedirs(MODEL_DIR, exist_ok=True)
+
 MODEL_PATH = os.path.join(MODEL_DIR, "price_model.pkl")
 ENC_PATH = os.path.join(MODEL_DIR, "encoders.pkl")
 INFO_PATH = os.path.join(MODEL_DIR, "model_info.json")
